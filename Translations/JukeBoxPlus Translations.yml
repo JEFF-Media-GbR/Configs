@@ -1,0 +1,95 @@
+﻿message-added-disc: "Added {NAME} to this Jukebox"
+message-already-added: "This Jukebox already contains {NAME}."
+message-enabled: "&aEnabled"
+message-disabled: "&cDisabled"
+message-loop: "&6Loop"
+message-shuffle: "&6Shuffle"
+message-autostart: "&6Autostart"
+message-now-playing: "&aNow playing {NAME}."
+message-stop: "&6Stop"
+message-radius: "&6Radius"
+message-choose-record-first: "Choose a record first."
+
+#########################
+##### Translations ######
+#########################
+
+# Here are some community made translations
+
+##### Azerbaijan Turkish
+#message-added-disc: "{NAME} adlı disk musiqi qutusuna əlavə edildi."
+#message-already-added: "Bu musiqi qutusunun içində onsuzda {NAME} adlı disk var."
+#message-enabled: "&aAktifləşdirildi"
+#message-disabled: "&cDeaktifləşdirildi"
+#message-loop: "&6Təkrarla"
+#message-shuffle: "&6Qarışdır"
+#message-autostart: "&6Avtomatik çal"
+#message-now-playing: "&aHal-hazırda {NAME} çalınır."
+#message-stop: "&6Stop"
+#message-radius: "&6Radius"
+#message-choose-record-first: "Choose a record first."
+
+##### Hungarian
+#message-added-disc: "{NAME} lemez hozzáadva a Zenedobozhoz."
+#message-already-added: "Ez a Zenedoboz már tartalmazza a(z) {NAME} lemezt."
+#message-enabled: "&aEngedélyezve"
+#message-disabled: "&cLetiltva"
+#message-loop: "&6Ismétlés"
+#message-shuffle: "&6Véletlenszerű"
+#message-autostart: "&6Autokezdés"
+#message-now-playing: "&aNow playing {NAME}."
+#message-stop: "&6Stop"
+#message-radius: "&6Radius"
+#message-choose-record-first: "Choose a record first."
+
+##### Russian
+#message-added-disc: "{NAME} добавлена в Проигрыватель"
+#message-already-added: "В этом Проигрывателе уже есть {NAME}."
+#message-enabled: "&aВключен"
+#message-disabled: "&cОтключен"
+#message-loop: "&6Зациклить"
+#message-shuffle: "&6Перемешать"
+#message-autostart: "&6Автозапуск"
+#message-now-playing: "&aСейчас играет {NAME}."
+#message-stop: "&6Стоп"
+#message-radius: "&6Радиус"
+#message-choose-record-first: "Сначала выберите пластинку."
+
+##### Simplified Chinese
+#message-added-disc: "{NAME} 光盘已添加到这个唱片机"
+#message-already-added: "此唱片機已經拥有 {NAME} 的光盘"
+#message-enabled: "&a启动"
+#message-disabled: "&c禁用"
+#message-loop: "&6单曲循环"
+#message-shuffle: "&6随机播放"
+#message-autostart: "&6自动播放"
+#message-now-playing: "&a正在播放 {NAME}"
+#message-stop: "&6Stop"
+#message-radius: "&6Radius"
+#message-choose-record-first: "Choose a record first."
+
+##### Traditional Chinese
+#message-added-disc: "{NAME} 光盤已添加到這個唱片機"
+#message-already-added: "此唱片機已經擁有 {NAME} 的光盤"
+#message-enabled: "&a啟動"
+#message-disabled: "&c禁用"
+#message-loop: "&6單曲循環"
+#message-shuffle: "&6隨機播放"
+#message-autostart: "&6自動播放"
+#message-now-playing: "&a正在播放 {NAME}"
+#message-stop: "&6Stop"
+#message-radius: "&6Radius"
+#message-choose-record-first: "Choose a record first."
+
+##### Turkish
+#message-added-disc: "{NAME} isimli disk müzik kutusuna eklendi."
+#message-already-added: "Bu müzik kutusu zaten {NAME} isimli diski içeriyor."
+#message-enabled: "&aAktifleştirildi"
+#message-disabled: "&cDeaktifleştirildi"
+#message-loop: "&6Tekrarla"
+#message-shuffle: "&6Karıştır"
+#message-autostart: "&6Otomatik oynat"
+#message-now-playing: "&aŞimdi {NAME} çalıyor."
+#message-stop: "&6Stop"
+#message-radius: "&6Radius"
+#message-choose-record-first: "Choose a record first."
