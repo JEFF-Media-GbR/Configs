@@ -1,5 +1,7 @@
 # Issue Tracker / Wiki
 
+This repository provides information about some of my plugins, but it's still under construction.
+
 ## PlaceholderAPI
 - [AngelChestPlus Placeholders](https://github.com/JEFF-Media-GbR/issue-tracker/wiki/AngelChest-PlaceholderAPI)
 - [ChestSort Placeholders](https://github.com/JEFF-Media-GbR/issue-tracker/wiki/ChestSort-PlaceholderAPI)
@@ -14,4 +16,4 @@
 
 ## Discord
 
-[![Join our Discord](https://api.jeff-media.de/img/discord1.png)](https://discord.jeff-media.de)
+[![Join my Discord](https://api.jeff-media.de/img/discord1.png)](https://discord.jeff-media.de)
