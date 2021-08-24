@@ -1,10 +1,16 @@
-# Issue Tracker
+# Issue Tracker / Wiki
 
-Issue Tracker repository for close-source JEFF Media GbR products
+## PlaceholderAPI
+- [AngelChestPlus Placeholders](https://github.com/JEFF-Media-GbR/issue-tracker/wiki/AngelChest-PlaceholderAPI)
+- [ChestSort Placeholders](https://github.com/JEFF-Media-GbR/issue-tracker/wiki/ChestSort-PlaceholderAPI)
+- [Drop2InventoryPlus Placeholders](https://github.com/JEFF-Media-GbR/issue-tracker/wiki/Drop2Inventory-Placeholders)
 
-Aside from issues you can also request features for close-source JEFF Media GbR products here.
-
-For Placeholders you can visit [wiki page](https://github.com/JEFF-Media-GbR/issue-tracker/wiki)
+## Default Configuration files
+- AngelChestPlus
+  - [config.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/AngelChest/config.yml)
+  - [groups.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/AngelChest/groups.yml)
+  - [blacklist.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/AngelChest/blacklist.yml)
+  - [graveyards.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/AngelChest/graveyards.yml)
 
 ## Discord
 
