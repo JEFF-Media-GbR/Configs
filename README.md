@@ -16,4 +16,4 @@ This repository provides information about some of my plugins, but it's still un
 
 ## Discord
 
-[![Join my Discord](https://api.jeff-media.de/img/discord1.png)](https://discord.jeff-media.de)
+[![Join my Discord](https://api.jeff-media.de/img/discord1.png)](https://discord.jeff-media.com)
