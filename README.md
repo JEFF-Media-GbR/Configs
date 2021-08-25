@@ -13,6 +13,9 @@ This repository provides information about some of my plugins, but it's still un
   - [groups.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/AngelChest/groups.yml)
   - [blacklist.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/AngelChest/blacklist.yml)
   - [graveyards.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/AngelChest/graveyards.yml)
+- Drop2InventoryPlus
+  - [config.yml](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/Drop2Inventory/config.yml)
+  - [condeens.txt](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/Drop2Inventory/condense.txt)
 
 ## Links
 - [All my public plugins on SpigotMC](https://www.spigotmc.org/resources/authors/mfnalex.175238/)
