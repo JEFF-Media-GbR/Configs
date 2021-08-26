@@ -42,6 +42,19 @@ message-choose-record-first: "Choose a record first."
 #message-radius: "&6Radius"
 #message-choose-record-first: "Choose a record first."
 
+##### Polish
+#message-added-disc: "Dodano {NAME} do szafy grającej"
+#message-already-added: "Ta szafa grająca już zawiera {NAME}."
+#message-enabled: "&aWłączony"
+#message-disabled: "&cWyłączony"
+#message-loop: "&6pętla"
+#message-shuffle: "&6Mieszanie"
+#message-autostart: "&6Autostart"
+#message-now-playing: "&aTeraz Gra {NAME}."
+#message-stop: "&6Stop"
+#message-radius: "&6Zasięg"
+#message-choose-record-first: "Najpierw wybierz płytę."
+
 ##### Russian
 #message-added-disc: "{NAME} добавлена в Проигрыватель"
 #message-already-added: "В этом Проигрывателе уже есть {NAME}."
