@@ -7,6 +7,8 @@
 ##### WARNING! #####
 # This file contains UTF8 symbols! You MUST use a proper text editor like Notepad++ to edit this file!
 # If you use some kind of "online editor", your file will break and reset to the default values!
+# If this (❤️️) doesn't look like a heart, you MUST use another text editor, because your's doesn't support UTF-8!
+##### WARNING! #####
 
 #############################
 #####    Permissions    #####
@@ -22,7 +24,7 @@
 # angelchest.tp              The player can teleport to their AngelChests
 # angelchest.preview         Allows the player to preview their AngelChests' contents in /acgui
 # angelchest.toggle          Allows to enable/disable AngelChest per player
-# angelchest.others          Allows to run /aclist, /actp, /acfetch and /acunlock for other players
+# angelchest.others          Allows to run /actoggle, /aclist, /actp, /acfetch and /acunlock for other players
 # angelchest.reload          Allows reloading the config using /acreload
 # angelchest.debug           Allows to use the debug command /acdebug
 # angelchest.version         Allows to use the version command /acversion
@@ -50,8 +52,9 @@
 # /acunlock [chestID]        Permission: angelchest.protect and angelchest.unlock
 #                            Unlocks one of your AngelChests if you have the angelchest.protect permission
 #
-# /actoggle                  Permission: angelchest.toggle
-#                            Enables/disables AngelChest for this player
+# /actoggle [player]         Permission: angelchest.toggle
+#                            Enables/disables AngelChest for this player.
+#                            Also requires permission angelchest.others when changing other player's settings.
 #
 # /acreload                  Permission: angelchest.reload
 #                            Reloads the config
@@ -189,29 +192,23 @@ only-show-gui-after-death-if-player-can-tp-or-fetch: true
 
 # You can choose the Material to use for the AngelChest,
 # e.g. CHEST, ENDER_CHEST, OBSIDIAN, ...
-# When using PLAYER_HEAD, you can use the head of the died
-# player or any other custom skull (see option below)
-# Tip: SOUL_CAMPFIRE looks awesome (1.16+ only)
+# It's also possible to use custom heads here, or custom
+# blockdata, or even blocks from ItemsAdder.
+# See here for more information: https://wiki.jeff-media.com/books/general-information/page/custom-blocks
+# Examples:
+#  material: DIRT (will use a dirt block)
+#  material: head:player (will use the player's head)
+#  material: head:somebase64string (will use that custom base64 texture)
+#  material: minecraft:RED_CANDLES[amount=3,lit=true] (will use 3 red, lit candles)
+#  material: itemsadder:ruby_ore (will use Ruby Ore from ItemsAdder)
 material: CHEST
 
 # You can choose another Material to use for unlocked
 # AngelChests.
+# See here for more information: https://wiki.jeff-media.com/books/general-information/page/custom-blocks
 # PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
 use-different-material-when-unlocked: false
 material-unlocked: ENDER_CHEST
-
-# When set to true and material is set to PLAYER_HEAD,
-# AngelChest will use the player's head for the chest.
-# When set to false, you can define a custom head
-# via its base64 value (see option below)
-head-uses-player-name: true
-
-# You can also use a custom PLAYER_HEAD texture by using
-# its base64 value. For example, you can go to
-# https://minecraft-heads.com/custom-heads
-# and choose any head, then copy the "value" (at the
-# very bottom of the page) and paste it here.
-custom-head-base64: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmIxN2M1YTk5ZTg1ODE4NDgyY2Q2YzBjNzFiN2VmOTRhY2VkYjZiOGUxZDg5NDRhZGY5MWU1MWU1MDg2NTY2ZiJ9fX0="
 
 # When true, AngelChest will spawn the chest at the last location where a player was standing
 # before he died in the void. When false, the chest will spawn at Y=1
@@ -236,6 +233,11 @@ allow-chest-in-void: true
 # could be abused.
 # PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
 invulnerability-after-tp: 0
+
+# When set to true, players will NOT get their armor equipped automatically on fast-looting
+# PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus! In the free version, auto-equipping is
+# always allowed.
+prohibit-auto-equip: false
 
 # You probably don't want your AngelChest to spawn on blocks like GRASS_PATH, FARMLAND, etc.
 # as that would destroy those blocks. You can blacklist them here so AngelChest searches
@@ -263,13 +265,17 @@ max-radius: 10
 # Searches for a new chest location if there isn't at least this amount of air above the chest.
 minimum-air-above-chest: 0
 
+# When enabled, and a player dies in lava, the chest will always spawn on at least the player's
+# Y level, to avoid them being spawned in some caves below a lava ocean
+avoid-lava-oceans: false
+
 # When absolutely no block inside "max-radius" is found, and the block where the player
 # died is bedrock, we can search for another block to replace instead of bedrock.
 never-replace-bedrock: true
 
 # Remove curse of vanishing / curse of binding items from the chest?
 remove-curse-of-vanishing: true
-remove-curse-of-binding: true
+remove-curse-of-binding: false
 
 # When true, totems of undying will work in every inventory slot
 # When false, they only work in the hand/off-hand slot (vanilla default)
@@ -376,10 +382,14 @@ fallback-to-deathlocation: true
 # You can also add the letter "p" to the end of the number to use percentages.
 # E.g. when using "0.2p", a user has to pay 20% of his account balance.
 
+# You can also use certain items that have to be "paid" with instead of money.
+# See items.yml file for more information
+# PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
+
 # How much does it cost to spawn the AngelChest? The amount will automatically
 # be taken from the player on death if they have enough money, otherwise
 # the chest will not spawn and the items drop normally
-# PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
+# If you want to use an item, simply use "price: item-name" (see items.yml)
 price: 0
 
 # You can refund the price when a player does not to open their AngelChest
@@ -388,20 +398,26 @@ refund-expired-chests: false
 
 # How much does it cost for a player to open a chest? Each player will only be
 # charged once per chest.
+# If you want to use an item, simply use "price-open: item-name" (see items.yml)
 # PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
 price-open: 0
 
 # How much does it cost to teleport yourself to one of your AngelChests?
+# If you want to use an item, simply use "price-teleport: item-name" (see items.yml) (Premium version only)
 price-teleport: 0
 
 # How much does it cost to teleport your AngelChests to you?
 # I suggest you make this cheaper than "price-teleport" because teleporting to
 # your death location is probably more useful than just getting your stuff back.
+# If you want to use an item, simply use "price-fetch: item-name" (see items.yml) (Premium version only)
 price-fetch: 0
 
 # When set to true, players must confirm teleporting to or fetching a chest if you set a price for those actions
 # by entering the same command again or by clicking on a text message in the chat
 confirm: true
+
+# When set to true, no player will be able to place ANY custom AngelChest items.
+prevent-placing-custom-items: true
 
 #################################
 #### Max. TP/Fetch distance #####
@@ -518,6 +534,7 @@ disable-worldguard-integration: false
 # AngelChest can check if a player has permissions to place blocks where he died. If
 # the player is prohibited from placing blocks there, AngelChest will not spawn a
 # chest if the following option is set to true.
+# Fetching chests into areas where players cannot build will also be prohibited.
 only-spawn-chests-if-player-may-build: false
 
 #########################
@@ -527,6 +544,15 @@ only-spawn-chests-if-player-may-build: false
 # AngelChest can hook into certain 3rd party plugins to improve the chest
 # generation. None of those plugins is required, and you do NOT have to
 # disable the integration if a certain plugin is not installed.
+
+# Some plugins offer a telekinesis enchant that prevent getting AngelChests spawned
+# when a player with telekinesis kills another player.
+# This is intended behaviour. If you still want the victim to get an AngelChest,
+# you can disable telekinesis for PVP kills in your enchantment plugins' config.
+# You also have to set the following option to true.
+# If you simply set this to true WITHOUT telling your enchantment plugin to not
+# make telekinesis work on players, you MIGHT be getting duplicated items!
+ignore-telekinesis: false
 
 # When you have Slimefun installed, AngelChest can check for "Soulbound" items
 # and prevent those from being put into the chest.
@@ -575,6 +601,10 @@ ignore-keep-inventory: false
 # I HIGHLY SUGGEST YOU LEAVE THIS ON HIGHEST! ONLY CHANGE THIS IF KNOW WHAT YOU ARE DOING!
 # WHEN IN DOUBT, CONTACT ME ON DISCORD: https://discord.jeff-media.de
 event-priority: HIGHEST
+
+# Some outdated plugins cause trouble when interacting with invisible armor stands (holograms).
+# Only set the following option to "true" if you really know what you are doing!
+disable-interacting-with-holograms: false
 
 #########################
 ##### Localization ######
@@ -642,8 +672,9 @@ hologram-offset-per-line: 0.25
 
 # PREMIUM FEATURE: THE WHOLE GUI IS ONLY AVAILABLE IN AngelChestPlus!
 
-# When true, players can fast-loot the AngelChest using rightclick (or shift-rightclick, see option below)
-# When false, players cannot fast-loot and always get the GUI displayed when opening a chest
+# When set to true, players can fast-loot the AngelChest using rightclick (or shift-rightclick, see option below)
+# When set to false, players cannot fast-loot and always get the GUI displayed when opening a chest
+# When set to "force", players will always fast-loot chests and will never see the GUI.
 allow-fastlooting: true
 
 # When true, players can open the AngelChest GUI using shift-rightclick and fast-loot the chest via rightclick
@@ -686,11 +717,18 @@ gui-title-chest: "&4&l[&c&lAngelChest&4&l] &c#{id} &4| &c{time}"
 angelchest-inventory-name: "&4&l[&c&lAngelChest&4&l] &b{player}&r"
 
 ##### Button names and lore
+# Placeholders available in "gui-info-lore", "gui-teleport", "gui-teleport-lore", "gui-fetch" and "gui-fetch-lore":
+# {price} is the teleportation price
+# {currency} is the currency's name
+# {balance} is the player's current balance
+# You can use \n for newlines in lores
 gui-back: "&6Back"
 gui-info: "&6Info"
 gui-info-lore: "§6You are about to spend {price}{currency}."
 gui-teleport: "&6Teleport"
+gui-teleport-lore: "§6You are about to spend {price}{currency}."
 gui-fetch: "&6Fetch"
+gui-fetch-lore: "§6You are about to spend {price}{currency}."
 gui-unlock: "&6Unlock"
 gui-accept: "&aAccept"
 gui-decline: "&cDecline"
@@ -759,14 +797,9 @@ command-aliases-acunlock:
   - unlockchest
   - unlock
 
-# Commands than can be used instead of /actoggle. This one is a little different.
-# If the alias ends with [enable], it will enable AngelChest for this player instead of toggling it
-# If the alias ends with [disable], it will disable AngelChest for this player instead of toggling it
-# Of course players only have to type the alias without [enable], [disable]
+# Commands than can be used instead of /actoggle.
 command-aliases-actoggle:
   - angelchesttoggle
-  - acon[enable]
-  - acoff[disable]
 
 # Commands that can be used instead of /acreload
 command-aliases-acreload:
@@ -852,6 +885,12 @@ message-angelchest-fetched: "&aAngelChest fetched succesfully."
 message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 message-min-distance: "&cYou already are nearby your AngelChest."
 message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+message-teleporting: "&aTeleporting to AngelChest..."
+message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 #########################
 ##### Translations ######
@@ -901,6 +940,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Azerbaijan Turkish
 #message-all-your-angelchests-were-already-unlocked: "&eBütün AngelChest'lərinin kilidi onsuzda açıqdır."
@@ -941,6 +986,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Bulgarian
 #message-all-your-angelchests-were-already-unlocked: "&eВсичките Ваши AngelChest-ове бяха отключени."
@@ -982,6 +1033,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aУспешно Ви телепортирахме до Вашия AngelChest."
 #message-min-distance: "&cВие вече сте в близост до Вашия AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Chinese Simplified 简体中文
 #message-all-your-angelchests-were-already-unlocked: "&e你所有的天使之箱都已解锁."
@@ -1023,6 +1080,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Chinese Traditional 繁體中文
 #message-all-your-angelchests-were-already-unlocked: "&e所有的天使之箱已被解鎖"
@@ -1064,6 +1127,59 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
+
+##### Danish 
+#message-all-your-angelchests-were-already-unlocked: "&eAlle dine AngelChests var allerede låst op."
+#message-angelchest-created: "&aEn engel samlede dine ting og lagde dem i en kiste på stedet for din død."
+#message-angelchest-disappeared: "&cDu var for langsom... Din AngelChest er forsvundet og tabt indholdet."
+#message-error-players-only: "&cError: Denne kommando kan kun bruges af spillere."
+#message-inventory-was-empty: "&eEn engel søgte efter dine ting, men kunne ikke finde noget."
+#message-not-allowed-to-break-other-angelchests: "&cDu må ikke bryde denne DødsChest."
+#message-not-allowed-to-open-other-angelchests: "&cDu må ikke åbne denne DødsChest."
+#message-unlocked-more-angelchests: "&aDu har låst %d DødsChests op."
+#message-unlocked-one-angelchest: "&aDu har låst din DødsChest op."
+#message-you-dont-have-any-angelchests: "&eDu har ingen DødsChest."
+#message-you-got-part-of-your-inventory-back: "&eDu har fået en del af dit inventar tilbage, men nogle varer er stadig i DødsChest."
+#message-you-got-your-inventory-back: "&aDu har fået dit inventar tilbage!"
+#message-angelchest-location: "&ePlaceringer af dine DødsChest:"
+#message-not-enough-money: "&cDu har ikke penge nok."
+#message-not-enough-money2: "&cEn engel forsøgte at samle dine ting, men du havde ikke penge nok."
+#message-please-select-chest: "&7Angiv venligst hvilken DødsChest du vil vælge."
+#message-already-unlocked: "&cThis DødsChest er allerede låst op."
+#message-too-many-angelchests: "&cDu havde flere DødsChest, end din engel kunne klare... Din ældste DødsChest er eksploderet."
+#message-no-angelchest-in-pvp: "&cEn engel forsøgte at samle dine ting, men blev sat på flugt af tilstedeværelsen af ​​din morder."
+#message-angelchest-retrieved: "&aDødsChest hentet!"
+#message-confirm: "&6Du er ved at bruge {price}{currency}. Klik på denne meddelelse for at fortsætte."
+#message-paid-open: "&8Du brugte {price}{currency} på at åbne en DødsChest."
+#message-unlocked-automatically: "&8Din DødsChest er blevet låst op automatisk."
+#message-angelchest-opened: "&6{player} har åbnet din DødsChest."
+#message-angelchest-emptied: "&c{player} har tømt din DødsChest."
+#message-spawn-chance-unsuccessful: "&cDin engel glemte at samle dine ting, uheldig!"
+#message-no-permission: "&cDu har ikke tilladelse til at bruge denne kommando."
+#message-invulnerable: "&a&lDu er usårlig i {time}."
+#message-vulnerable: "&c&lDu er ikke længere usårlig."
+#message-tp-across-worlds-not-allowed: "&cDu kan ikke teleportere til din AngelChest på tværs af verdener."
+#message-fetch-across-worlds-not-allowed: "&cDu kan ikke hente din DødsChest på tværs af verdener."
+#message-max-tp-distance: "&cDu kan ikke teleportere til DødsChests mere end {distance} blocks væk."
+#message-max-fetch-distance: "&cDu kan ikke hente DødsChests mere end {distance} blocks væk."
+#message-angelchest-disabled: "&cDu er ikke længere beskyttet af engle."
+#message-angelchest-enabled: "&aDu er nu beskyttet af engle."
+#message-angelchest-fetched: "&aAngelChest blev hentet."
+#message-angelchest-teleported: "&aDet lykkedes at teleportere dig til din DødsChest."
+#message-min-distance: "&cDu er allerede i nærheden af ​​din DødsChest."
+#message-buried-in-graveyard: "&aEn engel samlede dine ting og begravede dem på &6{graveyard}."
+#message-cant-fetch-here: "&cDu kan ikke hente din AngelChest her."
+#message-teleporting: "&aTeleporterer til DødslChest..."
+#message-angelchest-disabled-others: "&c{player} er ikke længere beskyttet af engle."
+#message-angelchest-enabled-others: "&a{player} er nu beskyttet af engle."
+#message-has-no-item: "&cDu skal bruge mindst én {item}&r&c for at gøre dette."
+#message-has-no-item2: "&cEn engel prøvede at samle dine ting, men du havde ingen {item}&r&c."
 
 ##### Dutch
 #message-all-your-angelchests-were-already-unlocked: "&eAlle AngelChests die je hebt zijn al ontgrendeld"
@@ -1105,6 +1221,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSucesvol getelporteerd naar je AngelChest."
 #message-min-distance: "&cJe bent al in de buurt van je AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporteren naar jou AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### French - Thanks to AngelCynara for translating! -> https://www.spigotmc.org/members/angelcynara.398643/ 
 #message-all-your-angelchests-were-already-unlocked: "&eTout vos AngeCoffres sont débloqués."
@@ -1146,6 +1268,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### German
 #message-all-your-angelchests-were-already-unlocked: "&eAlle deine AngelChests waren bereits aufgeschlossen."
@@ -1153,8 +1281,8 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-disappeared: "&cDu warst zu langsam... deine AngelChest ist verschwunden hat ihren Inhalt fallen gelassen."
 #message-error-players-only: "&cFehler: Dieser Befehl kann nur von Spielern benutzt werden."
 #message-inventory-was-empty: "&eEin Engel hat nach deinen Sachen gesucht aber konnte nichts finden."
-#message-not-allowed-to-break-other-angelchests: "&cYou are not allowed to break this AngelChest."
-#message-not-allowed-to-open-other-angelchests: "&cYou are not allowed to open this AngelChest."
+#message-not-allowed-to-break-other-angelchests: "&cDu darfst diese AngelChest nicht zerstören."
+#message-not-allowed-to-open-other-angelchests: "&cDu darfst diese AngelChest nicht öffnen."
 #message-unlocked-more-angelchests: "&aDu hast %d AngelChests aufgeschlossen."
 #message-unlocked-one-angelchest: "&aDu hast deine AngelChest aufgeschlossen."
 #message-you-dont-have-any-angelchests: "&eDu hast keine AngelChest."
@@ -1187,6 +1315,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aErfolgreich zur AngelChest teleportiert."
 #message-min-distance: "&cDu bist schon in der Nähe deiner AngelChest."
 #message-buried-in-graveyard: "&aEin Engel hat deine Sachen eingesammelt und in &6{graveyard} &avergraben."
+#message-cant-fetch-here: "&cDu kannst deine AngelChest nicht hierhin holen."
+#message-teleporting: "&aTeleportiere zur AngelChest..."
+#message-angelchest-disabled-others: "&c{player} wird nicht länger von Engeln beschützt."
+#message-angelchest-enabled-others: "&a{player} wird jetzt von Engeln beschützt."
+#message-has-no-item: "&cDu brauchst mindestens 1 {item}&r&c um dies zu tun."
+#message-has-no-item2: "&cEin Engel hat versucht deine Sachen einzusammeln, aber du hattest nicht genug {item}&r&c."
 
 ##### Hungarian
 # message-all-your-angelchests-were-already-unlocked: "&eAz összes AngyalLádád már fel van oldva."
@@ -1228,6 +1362,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSikeresen teleportáltál az AngyalLádádhoz."
 #message-min-distance: "&cMár az AngyalLádád közelében vagy."
 #message-buried-in-graveyard: "&aEgy Angyal összegyűjtötte a cókmókjaidat, és elásta a(z) &6{graveyard} helyen."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Indonesian
 #message-all-your-angelchests-were-already-unlocked: "&eSemua AngelChest kamu sudah tidak terkunci."
@@ -1269,6 +1409,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Italian
 #message-all-your-angelchests-were-already-unlocked: "&eTutte le tue AngelChests sono già state sbloccate."
@@ -1310,6 +1456,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Pirate Speak
 #message-all-your-angelchests-were-already-unlocked: "&eAll yer AngelChests was already unlocked."
@@ -1351,6 +1503,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported ye to yer AngelChest."
 #message-min-distance: "&cYe already be nearby yer AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Polish
 #message-all-your-angelchests-were-already-unlocked: "&eWszystkie twoje AnielskieSkrzynie zostały już odblokowane."
@@ -1392,6 +1550,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleportowanie do AngelChest..."
+#message-angelchest-disabled-others: "&c{player} nie jest już chroniony przez Anioły."
+#message-angelchest-enabled-others: "&a{player} jest teraz chroniony przez  Anioły."
+#message-has-no-item: "&cPotrzebujesz przynajmniej jeden {item}&r&c aby to zrobić."
+#message-has-no-item2: "&cAnioł próbował podnieść twoje itemy, lecz nie miałeś żadnego {item}&r&c."
 
 ##### Portuguese
 #message-all-your-angelchests-were-already-unlocked: "&eTodos os seus AngelChests estavam desbloqueados."
@@ -1433,6 +1597,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aSuccessfully teleported you to your AngelChest."
 #message-min-distance: "&cYou already are nearby your AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeleporting to AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Russian - Thanks to @GEEK for translating
 #message-all-your-angelchests-were-already-unlocked: "&eВсе ваши Ангельские сундуки разблокированы."
@@ -1474,6 +1644,13 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aВы были успешно телепортированы к вашему Ангельскому сундуку."
 #message-min-distance: "&cВы уже находитесь вблизи своего Ангельского сундука."
 #message-buried-in-graveyard: "&aАнгел собрал ваши вещи и закопал в месте под названием &6{graveyard}&a."
+#message-cant-fetch-here: "&cВы не можете забрать свой Сундук Ангела здесь."
+#message-teleporting: "&aТелепортирую к Сундуку Ангела..."
+#message-angelchest-disabled-others: "&c{player} теперь не защищён Ангелами."
+#message-angelchest-enabled-others: "&a{player} теперь защищён Ангелами."
+#message-has-no-item: "&cЧтобы сделать это, вам нужен как минимум один {item}."
+#message-has-no-item2: "&cАнгел пытался собрать твои вещи, но у вас не было {item}."
+
 
 ##### Spanish Spain (es_ES)
 #message-all-your-angelchests-were-already-unlocked: "&eTodos tus Artefactos Angelicales se han desprotegido."
@@ -1515,6 +1692,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aHas aparecido junto a tu Artefacto Angelical."
 #message-min-distance: "&cEstás demasiado cerca de tu Artefacto Angelical."
 #message-buried-in-graveyard: "&aEl Artefacto Angelical ha recogido tus cosas y las ha enterrado en &6{graveyard}&a."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeletransportándote a tu AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 ##### Spanish 2
 #message-all-your-angelchests-were-already-unlocked: "&eTodos tus AngelChest ya se encuentran desbloqueados."
@@ -1556,6 +1739,58 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aTe has teletransportado exitosamente a tu AngelChest."
 #message-min-distance: "&cYa estás cerca de tu AngelChest."
 #message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
+#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-teleporting: "&aTeletransportándote a tu AngelChest..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
+
+##### Swedish
+#message-all-your-angelchests-were-already-unlocked: "&eAlla dina AngelChests är redan upplåsta"
+#message-angelchest-created: "&aEn Ängel sammlade ihop dina saker och lade dem i en kista på platsen du dog"
+#message-angelchest-disappeared: "&cDu var för långsam... Din AngelChest har försvunnit och tappat innehållet."
+#message-error-players-only: "&cFel: Detta kommando kan endast användas av spelare."
+#message-inventory-was-empty: "&eEn ängel sökte efter dina saker men kunde inte hitta något."
+#message-not-allowed-to-break-other-angelchests: "&cDu får inte förstöra denna AngelChest."
+#message-not-allowed-to-open-other-angelchests: "&cDu får inte öppna denna AngelChest."
+#message-unlocked-more-angelchests: "&aDu har låst upp %d AngelChests."
+#message-unlocked-one-angelchest: "&aDu har låst upp din AngelChest."
+#message-you-dont-have-any-angelchests: "&eDu har inga AngelChests."
+#message-you-got-part-of-your-inventory-back: "&eDu har fått tillbaka en del av ditt inventarium, men vissa föremål finns fortfarande kvar i AngelChest."
+#message-you-got-your-inventory-back: "&aDu fick tillbaka ditt inventarium!"
+#message-angelchest-location: "&ePlatser av din AngelChests:"
+#message-not-enough-money: "&cDu har inte tillräckligt med pengar."
+#message-not-enough-money2: "&cEn Ängel försökte samla dina saker men du hade inte tillräckligt med pengar."
+#message-please-select-chest: "&7Var snäll och ange vilken AngelChest du vill välja."
+#message-already-unlocked: "&cDenna AngelChest är redan upplåst."
+#message-too-many-angelchests: "&cDu hade fler AngelChests än din Angel kunde hantera ... Din äldsta AngelChest har exploderat."
+#message-no-angelchest-in-pvp: "&cEn ängel försökte samla dina saker men fick flyga ifrån på grund av närvaron av din mördare."
+#message-angelchest-retrieved: "&aAngelChest hämtad!"
+#message-confirm: "&6Du är påväg att spendera {price}{currency}. Klicka detta meddelande för att fortsätta."
+#message-paid-open: "&8Du har spenderat {price}{currency} för att öppna en AngelChest."
+#message-unlocked-automatically: "&8Din AngelChest har blivit upplåst automatiskt."
+#message-angelchest-opened: "&6{player} har öppnat din AngelChest."
+#message-angelchest-emptied: "&c{player} har tömt din AngelChest."
+#message-spawn-chance-unsuccessful: "&cDin Ängel glömde att samla dina saker, vilken otur!"
+#message-no-permission: "&cDu har inte behörighet att använda det här kommandot."
+#message-invulnerable: "&a&lDu är osårbar för {time}."
+#message-vulnerable: "&c&lDu är inte längre osårbar."
+#message-tp-across-worlds-not-allowed: "&cDu kan inte teleportera till din AngelChest från andra världar."
+#message-fetch-across-worlds-not-allowed: "&cDu kan inte hämta din AngelChest från andra världar."
+#message-max-tp-distance: "&cDu kan inte teleportera till AngelChests mer än {distance} block ifrån."
+#message-max-fetch-distance: "&cDu kan inte hämta AngelChests mer än {distance} block ifrån."
+#message-angelchest-disabled: "&cDu är inte längre skyddad av änglar."
+#message-angelchest-enabled: "&aDu är nu skyddad av änglar."
+#message-angelchest-fetched: "&aAngelChest hämtad framgångsrikt."
+#message-angelchest-teleported: "&aTeleporterade dig framgångsrikt till din AngelChest."
+#message-min-distance: "&cDu är redan i närheten av din AngelChest."
+#message-buried-in-graveyard: "&aEn ängel samlade ihop dina saker och begravde det vid &6{graveyard}."
+#message-cant-fetch-here: "&cDu kan inte hämta din AngelChest här."
+#message-angelchest-disabled-others: "&c{player} är inte skyddad av Änglar längre."
+#message-angelchest-enabled-others: "&a{player} är nu skyddad av Änglar"
+#message-has-no-item: "&cDu behöver minst en {item}&r&c för att göra detta."
+#message-has-no-item2: "&cEn Ängel försökte att samla dina saker men du hade inte någon {item}&r&c."
 
 ##### Turkish (Turkey Turkish)
 #message-all-your-angelchests-were-already-unlocked: "&eTüm AngelChest'lerinin kilidi zaten açık."
@@ -1596,6 +1831,12 @@ message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &
 #message-angelchest-teleported: "&aAngelChest'ine başarıyla ışınlanıldı."
 #message-min-distance: "&cZaten AngelChest'inin yakınındasın."
 #message-buried-in-graveyard: "&aBir melek eşyalarını topladı ve bir &{graveyard}&a'a gömdü."
+#message-cant-fetch-here: "&cAngelChest'ini buraya getiremezsin."
+#message-teleporting: "&aAngelChest'e ışınlanılıyor..."
+#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
+#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
+#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
+#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
 
 #########################
 #####     Done!     #####
@@ -1608,4 +1849,3 @@ verbose: false
 # NEVER CHANGE THE VALUES BELOW!
 plugin-version: ${project.version}
 config-version: ${config.version}
-
