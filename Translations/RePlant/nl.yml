@@ -1,0 +1,6 @@
+# Dit bestand zal elke update worden overschreven. Al wil de vertaling veranderen of behouden, maak dan een kopie van dit bestand en hernoem het.
+# Daarna, verander de "language:" waarde in de config.yml naar wat je het gekopieërde bestand hebt hernoemd.
+config-reloaded: "&aInstellingen zijn herladen."
+replant-crops-enabled: "&6Herplanten van gewassen is nu &aingeschakeld&6."
+replant-crops-disabled: "&6Herplanten van gewassen is nu &cuitgeschakeld&6."
+no-permission: "&cI'm sorry, but you do not have permission to perform this commmand."
