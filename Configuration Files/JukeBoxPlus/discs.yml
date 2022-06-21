@@ -1,0 +1,45 @@
+# If you use a custom resource pack for your server that changes the songs, you can set the duration for each song here
+# You must either use an integer for the duration in seconds, or 0 for the default duration
+
+11:
+  duration: 0
+  name: "11"
+13:
+  duration: 0
+  name: "13"
+blocks:
+  duration: 0
+  name: "Blocks"
+cat:
+  duration: 0
+  name: "Cat"
+chirp:
+  duration: 0
+  name: "Chirp"
+far:
+  duration: 0
+  name: "Far"
+mall:
+  duration: 0
+  name: "Mall"
+mellohi:
+  duration: 0
+  name: "Mellohi"
+pigstep:
+  duration: 0
+  name: "Pigstep"
+stal:
+  duration: 0
+  name: "Stal"
+strad:
+  duration: 0
+  name: "Strad"
+wait:
+  duration: 0
+  name: "Wait"
+ward:
+  duration: 0
+  name: "Ward"
+otherside:
+  duration: 0
+  name: "Otherside"
