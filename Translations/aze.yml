@@ -1,0 +1,6 @@
+# This file gets overwritten on every update - if you want to change the translation, copy this file and rename it.
+# Then change the "language:" value in your config.yml to the custom name you gave this file.
+config-reloaded: "&aParametrlər yenidən yükləndi."
+replant-crops-enabled: "&6Məhsulları geri əkmək &aaktifləşdirildi&6."
+replant-crops-disabled: "&6Məhsulları geri əkmək &cdeaktifləşdirildi&6."
+no-permission: "&cI'm sorry, but you do not have permission to perform this commmand."
