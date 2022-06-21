@@ -1,0 +1,6 @@
+# This file gets overwritten on every update - if you want to change the translation, copy this file and rename it.
+# Then change the "language:" value in your config.yml to the custom name you gave this file.
+config-reloaded: "&aKonfiguration wurde neugeladen."
+replant-crops-enabled: "&6Nachpflanzen von Ernte wurde &aaktiviert&6."
+replant-crops-disabled: "&6Nachpflanzen von Ernte wurde &cdeaktiviert&6."
+no-permission: "&cDu hast keine Berechtigung um diesen Befehl auszuführen."
