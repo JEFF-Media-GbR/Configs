@@ -57,6 +57,11 @@ always-enabled: false
 # If set to false, players will have to enter /drop2inv once to enable automatic drop collection
 enabled-by-default: false
 
+# When set to true, Drop2Inventory remembers every player's setting after the rejoined.
+# If you set this to false, players will always have the default settings after joining again,
+# regardless of whether they had enabled or disabled Drop2Inventory before.
+save-playerdata: true
+
 # when set to true, block drops will be automatically collected if the plugin is enabled
 collect-block-drops: true
 
@@ -116,6 +121,12 @@ permissions-per-tool: false
 # "unarmed" skill
 avoid-hotbar: false
 
+# when enabled, Drop2Inventory will also collect drops for people in Creative Mode
+works-in-creative: false
+
+# when enabled, items will drop like normally when the player's inventory is full
+drop-to-ground-when-inv-full: true
+
 # Whether to play a sound when picking up items
 sound-enabled: true
 sound-effect: ENTITY_ITEM_PICKUP
@@ -126,7 +137,7 @@ sound-global: true
 
 # Whether to play a sound when trying to pick up items when the inventory is full
 sound-inv-full-enabled: true
-sound-inv-full-effect: ENTITY_ITEM_PICKUP
+sound-inv-full-effect: BLOCK_ANVIL_PLACE
 sound-inv-full-volume: 1.0
 sound-inv-full-pitch: 1.0
 sound-inv-full-pitch-variant: 0.2
@@ -161,7 +172,7 @@ detect-explosion-drops: true
 # If you set the horizontal range to 5, the hopper can also be up to 5
 # block away on the x and z axis from the item, while still being
 # detected.
-ignore-items-on-hoppers: true
+ignore-items-on-hoppers: false
 ignore-items-on-hoppers-vertical-range: 5
 ignore-items-on-hoppers-horizontal-range: 3
 
@@ -246,6 +257,13 @@ disabled-mobs:
 # PlayerPickupItemEvent in 1.17, which has been deprecated since 4(!) years
 # as the time of writing this
 im-using-outdated-plugins: false
+
+# When set to true, and the player is inside the area of a SuperiorSkyblock2 island,
+# drops will only be collected if the player is either
+# - the island's owner, or
+# - a member of the island, or
+# - a coop player of the island
+superior-skyblock-collect-only-on-own-islands: false
 
 ##########################
 ##### Update Checker #####
@@ -344,6 +362,13 @@ message-inventory-full: "&cYour inventory is full."
 #message-when-breaking-block: "&7Drop2Inventory: Utiliza &6/drop2inventory&7 o &6/drop2inv&7 para habilitar la coleccion automatica de dropeos."
 #message-when-breaking-block2: "&7Drop2Inventory: Utiliza &6/drop2inventory&7 o &6/drop2inv&7 para deshabilitar la coleccion automatica de dropeos."
 #message-inventory-full: "&cYour inventory is full."
+
+##### Swedish
+#message-disabled: "&7Automatisk droppinsamling har &cinaktiverats&7."
+#message-enabled: "&7Automatisk droppinsamling har &aaktiverats&7."
+#message-when-breaking-block: "&7Tips: Skriv &6/drop2inventory&7 eller &6/drop2inv&7 för att aktivera automatisk droppinsamling."
+#message-when-breaking-block2: "&7Tips: Skriv &6/drop2inventory&7 eller &6/drop2inv&7 för att inaktivera automatisk droppinsamling."
+#message-inventory-full: "&cDitt inventarium är fullt."
 
 ##### Turkish
 #message-disabled: "&7Otomatik toplama &cdeaktifleştirildi&7."
