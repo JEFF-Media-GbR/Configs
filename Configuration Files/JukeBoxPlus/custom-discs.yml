@@ -1,0 +1,38 @@
+# When your resource pack includes custom sounds, you can use them too!
+# You can assign an unlimited amount of sounds for each item, using CustomModelData.
+
+# WHAT YOU NEED
+#
+# You HAVE to use a texture pack that includes a song file.
+# You can optionally add custom textures for your disc as well by using CustomModelData, see below
+
+# INSTRUCTIONS
+#
+# Simply choose any item that you want to use for your disc, and choose a random number for the CustomModelData.
+# The CustomModelData will be used to identify this song. In this example, we'll use 1.
+# Define the material type, the custom model data, the duration, sound and name of your song/disc.
+# In this example, we used a gold ingot with a custom model data of "1". So, just take a gold ingot and enter
+# the command "/jukebox modeldata 1". This gold ingot will now be associated with your custom song! :)
+
+
+# Example:
+#GOLD_INGOT:
+#  1:
+#    duration: 120
+#    sound: "itemsadder:item.guitar.play"
+#    name: "My Custom Song"
+
+# This section contains the music discs contained in ItemsAdder's example resource pack
+STICK:
+  10010: # A stick with custom model data 10010 is Music Disc "Electric Keys" in ItemsAdder's default pack
+    duration: 169
+    sound: "itemsadder:music_disc.electric_keys"
+    name: "Electric keys"
+  10011:
+    duration: 184
+    sound: "itemsadder:music_disc.cdk_sunday"
+    name: "Cdk - Sunday"
+  10012:
+    duration: 157
+    sound: "itemsadder:music_disc.vidian_aether_theories"
+    name: "Vidian - Aether Theories"
