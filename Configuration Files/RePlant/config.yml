@@ -1,0 +1,186 @@
+#####################
+#      Replant      #
+#####################
+
+# Author:
+#   mfnalex (JEFF Media GbR)
+#
+# Discord:
+#   https://discord.jeff-media.de
+
+# When set to true, players need the "replant.use" permission to use Replant
+# When set to false, all players can use Replant
+use-permissions: false
+
+# See the lang/ folder for available translations. You can also create your own.
+language: en
+
+# Prefix to use for all messages. Set to "" to disable
+prefix: "&6[&aRe&2Plant&6] &r"
+
+#####################
+#   Replant Crops   #
+#####################
+
+# RePlant can automatically replant harvested crops. Every player can individually
+# enable or disable this feature using "/replant crops".
+
+# Delay in seconds before replanting crops. Set to 0 to instantly replant crops.
+crop-replant-delay: 1.0
+
+# When set to true, RePlant only replants fully grown crops.
+crop-replant-only-fully-grown: false
+
+# When true, RePlant drops seeds as usual. See the next option too when you set this to true
+# When false, no saplings at all will be dropped for automatically replanted crops
+crop-replant-drops-seeds: true
+
+# When set to true, RePlant reduces the dropped seeds by one so you don't get more
+# seeds than in vanilla.
+# When set to false, RePlant does not alter the drops, which means that every replanted
+# crop basically results in one free seed.
+crop-replant-costs: true
+
+# Replanting takes this amount of seeds
+crop-replant-cost-amount: 1
+
+# When set to true, new players will have replanting enabled by default
+crop-replant-enabled-by-default: false
+
+# When set to true, RePlant only replants crops harvested using a hoe.
+# In future versions, an enchant will be available, too!
+crop-replant-requires-hoe: false
+
+# When to true, RePlant only replants crops when you harvest them using
+# right-click. ONLY WORKS IN 1.17+
+crop-replant-requires-rightclick: false
+
+# When you have BOTH, "crop-replant-requires-hoe" AND "crop-replant-requires-rightclick" enabled,
+# you can decide whether a player needs to use both, a hoe AND a right-click at the same time,
+# or whether it's enough if one of those conditions is satisfied.
+# This has no effect if you don't have both mentioned options set to true.
+# When set to true, players must right-click with a hoe in their main hand to have crops replanted.
+# When set to false, players must either right-click OR have a hoe in their main hand.
+crop-replant-requires-both: false
+
+# When your players use click-bots to afk plant and harvest crops using bonemeal, you can prevent
+# them from doing so by setting this to true. It will simply not let them harvest crops using right-click
+# when they have bonemeal in one of their hands.
+dont-replant-when-harvesting-with-bonemeal: false
+
+# You can change the priority here to avoid conflicts with other plugins
+# who randomly think it's a good idea to clear the BlockDropItemEvent's
+# drop list on HIGH priority, even when the player doesn't have any
+# enchantment for this to be necessary. It's just stupid, so adjust
+# this if you have any trouble with strange enchantment plugins.
+# Available values: LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR
+replant-priority: NORMAL
+
+
+#########################
+# Plant fallen saplings #
+#########################
+
+# Fallen down saplings can be automatically planted when they are on the correct ground type for this tree type.
+plant-fallen-saplings: true
+
+# The sapling will be automatically planted after this amount of seconds.
+# Default is 120 seconds (2 minutes) so you still have time to pick it up if you like.
+# Maximum is 300 seconds (5 minutes) because items despawn after 5 minutes.
+# Set to 0 to instantly plant all saplings.
+plant-fallen-saplings-delay: 120.0
+
+# When set to false, saplings thrown on the ground by a player will not be planted
+plant-fallen-saplings-thrown-by-player: true
+
+# When the current block is already blocked by another sapling, we can search for a nearby spot
+# You should leave this enabled in case saplings are being stacked
+search-nearby-when-block-is-occupied: true
+
+# Maximum distance to search for valid spots when "search-nearby-when-block-is-occupied" is enabled
+sapling-spread: 1
+
+# When set to a value above 0, RePlant will not plant saplings when the nearby blocks already have
+# more than this amount of saplings
+max-saplings: 0
+
+#################
+#   Twerking    #
+#################
+
+##### Will be added in the next update #####
+
+# Allows players to grow saplings by "twerking" (repeated crouching / spamming shift)
+
+# When enabled, players can twerk to let nearby saplings grow.
+tree-twerking: true
+
+# Maximum distance for twerking to work
+twerk-radius: 3
+
+#################
+#     Misc      #
+#################
+
+# When enabled, wearing leather armor prevents trampling crops.
+leather-armor-prevents-trampling: false
+
+# Only has an effect when "leather-armor-prevents-trampling" is true.
+# When set to true, wearing leather boots always prevents crop trampling.
+# When false, every piece of leather armor adds a 25% chance to prevent trampling,
+# meaning that players with a full leather armor cannot trample crops anymore.
+only-require-boots: true
+
+# When true, crops can only be harvested using a hoe. This is independent of any replanting settings.
+prevent-harvesting-without-hoe: false
+
+#################
+#   Particles   #
+#################
+
+crop-particles-enabled: true
+crop-particles-type: villager_happy
+crop-particles-count: 10
+
+sapling-particles-enabled: true
+sapling-particles-type: villager_happy
+sapling-particles-count: 10
+
+#################
+# Other plugins #
+#################
+
+# When planting saplings and WorldGuard is installed, RePlant can check if the player who threw a sapling is allowed to
+# build at the place where the sapling would be planted. If not, the sapling will not be planted.
+use-worldguard: true
+
+# When planting saplings, RePlant can call a fake BlockPlaceEvent in the name of the throwing player so other plugins
+# can cancel this. You probably want to leave this enabled when you are using protection plugins like WorldGuard, ...
+# WARNING: Some anti cheat plugins might cancel this event. Disable this if you have problems with your anti cheat plugin!
+call-block-place-event: true
+
+##################
+# Update Checker #
+##################
+
+# Should we check for updates?
+# When enabled, a message is printed in the console if a new version has
+# been found, and OPs will be notified when they join the server.
+# When set to true, we will check for updates on startup and every X hours
+# When set to on-startup, we will only check on startup
+# When set to false, don't check for updates
+check-for-updates: true
+
+# When check-for-updates is true, AngelChest will check every X hours
+check-interval: 4
+
+#########
+# Done! #
+#########
+
+# Debug mode - you probably don't want this
+debug: false
+
+# Do not change the values below!
+config-version: ${config.version}
+plugin-version: ${project.version}
