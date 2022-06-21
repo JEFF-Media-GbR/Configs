@@ -1,0 +1,85 @@
+# You can add new items to be compostable, override the composting chance for existing compostable items
+# or remove existing items from being compostable.
+
+# Items that would normally be compostable but are not listed here will not be changed.
+# The default version of this file uses the default values for every item.
+
+# Items with a chance of 1 always raise the composter level.
+# Items with a chance of 0 can not be composted.
+# Items with a chance of 0.5 have a 50% chance to raise the composter level.
+
+# You must use regex for the items. To exactly match an item, for example DIAMOND,
+# you must use ^DIAMOND$
+
+^BEETROOD_SEEDS$: 0.3
+^DRIED_KELP$: 0.3
+^GLOW_BERRIES$: 0.3
+^GRASS$: 0.3
+^HANGING_ROOTS$: 0.3
+^KELP$: 0.3
+^.*_LEAVES$: 0.3
+^MELON_SEEDS$: 0.3
+^MOSS_CARPET$: 0.3
+^PUMPKIN_SEEDS$: 0.3
+^.*_SAPLING$: 0.3
+^SEAGRASS$: 0.3
+^SMALL_DRIPLEAF$: 0.3
+^SWEET_BERRIES$: 0.3
+^WHEAT_SEEDS$: 0.3
+^CACTUS$: 0.5
+^DRIED_KELP_BLOCK$: 0.5
+^FLOWERING_AZALEA_LEAVES$: 0.5
+^GLOW_LICHEN$: 0.5
+^MELON_SLICE$: 0.5
+^NETHER_SPROUTS$: 0.5
+^SUGAR_CANE$: 0.5
+^TALL_GRASS$: 0.5
+^VINE$: 0.5
+^.*_VINES$: 0.5
+^APPLE$: 0.65
+^AZALEA$: 0.65
+^BEETROOT$: 0.65
+^BIG_DRIPLEAF$: 0.65
+^CARROT$: 0.65
+^COCOA_BEANS$: 0.65
+^FERN$: 0.65
+^DANDELION$: 0.65
+^POPPY$: 0.65
+^BLUE_ORCHID$: 0.65
+^ALLIUM$: 0.65
+^AZURE_BLUET$: 0.65
+^.*_TULIP$: 0.65
+^OXEYE_DAISY$: 0.65
+^CORNFLOWER$: 0.65
+^LILY_OF_THE_VALLEY$: 0.65
+^WITHER_ROSE$: 0.65
+^SUNFLOWER$: 0.65
+^LILAC$: 0.65
+^ROSE_BUSH$: 0.65
+^PEONY$: 0.65
+^LILY_PAD$: 0.65
+^MELON$: 0.65
+^MOSS_BLOCK$: 0.65
+^.*_MUSHROOM$: 0.65
+^MUSHROOM_STEM$:
+^NETHER_WART$: 0.65
+^POTATO$: 0.65
+^PUMPKIN$: 0.65
+^CARVED_PUMPKIN$: 0.65
+^SEA_PICKLE$: 0.65
+^SHROOMLIGHT$: 0.65
+^SPORE_BLOSSOM$: 0.65
+^WHEAT$: 0.65
+^.*_FUNGUS$: 0.65
+^CRIMSON_ROOTS$: 0.65
+^WARPED_ROOTS$: 0.65
+^BAKED_POTATO$: 0.85
+^BREAD$: 0.85
+^COOKIE$: 0.85
+^FLOWERING_AZALEA$: 0.85
+^HAY_BLOCK$: 0.85
+^.*_MUSHROOM_BLOCK$: 0.85
+^NETHER_WART_BLOCK$: 0.85
+^WARPED_WART_BLOCK$: 0.85
+^CAKE$: 1
+^PUMPKIN_PIE$: 1
