@@ -1,0 +1,138 @@
+################################
+#####    AutoComposter    ######
+################################
+
+# written by mfnalex / JEFF Media GbR
+
+##################################
+##### Permissions & Commands #####
+##################################
+
+# /autocomposter reload:                 Reloads the config file
+#                                        Permission: autocomposter.reload
+#
+# /autocomposter give [player] [amount]: Gives autocomposter items to a player
+#                                        Permission: autocomposter.give
+
+############################
+##### General settings #####
+############################
+
+# Chance per crop to be fertilized.
+# When set to 1, all crops inside the radius attempt to grow
+# When set to 0.5, each crop has a 50% chance to grow
+chance: 1
+
+# When true, each grow attempt will behave like when the player
+# used bonemeal, meaning the plant grows by 2-5 stages.
+# A successful grow attempt will also show particles and
+# play the bonemeal sound.
+# When false, see "grow-by-min" and "grow-by-max" options below.
+mimic-bonemeal: true
+
+# When "mimic-bonemeal" is false, you can define a range of stages
+# that will be randomly chosen for each grow attempt.
+grow-by-min: 1
+grow-by-max: 3
+
+# Chance per fertilizing attempt to reduce the compost amount by 1.
+# When set to 1, every fertilizing attempt reduces the compost amount.
+# When set to 0.5, every fertilizing attempt has a 50% chance to
+# reduce the compost amount.
+compost-consume-chance: 1
+
+# When true, composters still consume compost even when no crops
+# to grow are nearby.
+composters-are-wasteful: false
+
+# When set to false, you can no longer use composters to harvest bonemeal
+composters-create-bonemeal: true
+
+# Interval in seconds between each fertilizing attempt
+min-interval: 20
+max-interval: 40
+
+# When true, you can sneak + rightclick composters with seeds to autoplant the seeds
+# on nearby farmland
+autoplant: true
+
+# Radius in which the composters fertilize crops
+# Cannot be set higher than 5 for y and 10 for xz
+radius-xz: 4
+radius-y: 1
+
+############################
+##### Crafting recipe  #####
+############################
+
+# When true, only composters created by a special crafting recipe
+# behave like AutoComposters.
+# When false, all composters behave like AutoComposters.
+composter-requires-special-crafting-recipe: true
+
+# Name of the special composter item
+item-name: "Auto Composter"
+
+# When you are using a custom resource pack, you can assign a special
+# texture for the special composter item.
+item-modeldata: 0
+
+# When true, the custom composter item glows like an enchanted item
+item-glow: true
+
+# You can disable the crafting recipe if you want AutoComposter to be
+# only obtainable with the command /autocomposter give [player] [amount]
+# If you set this to false, be sure to also set "composter-requires-special-crafting-recipe" to true.
+enable-crafting: true
+
+# Define the shape of the recipe here.
+# See example-recipes.html for examples.
+recipe-shape:
+  - "R"
+  - "C"
+
+# Define the ingredients of the recipe here.
+# See example-recipes.html for examples.
+recipe-ingredients:
+  - "R=REDSTONE"
+  - "C=COMPOSTER"
+
+# When true, AutoComposter will send the recipe to all players on join.
+# When false, players have to discover the recipe themselves
+auto-discover-recipe: false
+
+############################
+#####    Particles     #####
+############################
+
+# When true, all composters (or, when needing the special crafting
+# recipe, only AutoComposters) will show particles
+composter-particles-enabled: true
+composter-particles-type: villager_happy
+composter-particles-count: 5
+
+
+############################
+#####  Update Checker  #####
+############################
+
+# Should we check for updates?
+# When enabled, a message is printed in the console if a new version has
+# been found, and OPs will be notified when they join the server.
+# When set to true, we will check for updates on startup and every X hours
+# When set to on-startup, we will only check on startup
+# When set to false, don't check for updates
+check-for-updates: true
+
+# When check-for-updates is true, ComposterReloaded will check every X hours
+check-interval: 4
+
+#################
+##### Done! #####
+#################
+
+# Do not change!
+config-version: ${config.version}
+plugin-version: ${project.version}
+
+test: asd
