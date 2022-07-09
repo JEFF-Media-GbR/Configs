@@ -184,17 +184,17 @@ message-choose-record-first: "Choose a record first."
 #message-choose-record-first: "Choose a record first."
 
 ##### Traditional Chinese
-#message-added-disc: "{NAME} 光盤已添加到這個唱片機"
-#message-already-added: "此唱片機已經擁有 {NAME} 的光盤"
-#message-enabled: "&a啟動"
-#message-disabled: "&c禁用"
-#message-loop: "&6單曲循環"
-#message-shuffle: "&6隨機播放"
-#message-autostart: "&6自動播放"
-#message-now-playing: "&a正在播放 {NAME}"
-#message-stop: "&6Stop"
-#message-radius: "&6Radius"
-#message-choose-record-first: "Choose a record first."
+#message-added-disc: "已新增 {NAME} 到這個唱片機"
+#message-already-added: "這個唱片機已經有 {NAME}了喔!"
+#message-enabled: "&a開啟"
+#message-disabled: "&c關閉"
+#message-loop: "&6循環"
+#message-shuffle: "&6隨機"
+#message-autostart: "&6自動開始"
+#message-now-playing: "&a正在播放: {NAME}..."
+#message-stop: "&6停止"
+#message-radius: "&6區域"
+#message-choose-record-first: "請先選擇一個唱片!"
 
 ##### Swedish
 #message-added-disc: "Lade till {NAME} i denna Jukebox"
@@ -220,7 +220,7 @@ message-choose-record-first: "Choose a record first."
 #message-now-playing: "&aŞimdi {NAME} çalıyor."
 #message-stop: "&6Durdur"
 #message-radius: "&6Mesafe"
-#message-choose-record-first: "Lütfen ilk olarak bir müzik seçin."
+#message-choose-record-first: "Lütfen ilk olarak bir müzik seçin.
 
 ###############
 #### Done! ####
