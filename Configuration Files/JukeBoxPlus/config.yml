@@ -131,6 +131,19 @@ message-choose-record-first: "Choose a record first."
 #message-radius: "&6Radius"
 #message-choose-record-first: "Choose a record first."
 
+##### Bulgarian
+#message-added-disc: "{NAME} беше добавено към този Джубокс"
+#message-already-added: "Този Джубокс вече съдържа {NAME}."
+#message-enabled: "&aАктивирано"
+#message-disabled: "&cДеактивирано"
+#message-loop: "&6Превъртане"
+#message-shuffle: "&6Разбъркване"
+#message-autostart: "&6Авто-Стартиране"
+#message-now-playing: "&aСега свири {NAME}."
+#message-stop: "&6Спри"
+#message-radius: "&6Радиус"
+#message-choose-record-first: "Първо изберете запис."
+
 ##### Hungarian
 #message-added-disc: "{NAME} lemez hozzáadva a Zenedobozhoz."
 #message-already-added: "Ez a Zenedoboz már tartalmazza a(z) {NAME} lemezt."
