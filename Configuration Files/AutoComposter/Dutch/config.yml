@@ -1,0 +1,142 @@
+################################
+##### AutoComposter ######
+################################
+
+# geschreven door mfnalex / JEFF Media GbR
+
+##################################
+##### Machtigingen en commando's
+##################################
+
+# /autocomposter reload:                 Laadt het configuratiebestand opnieuw
+# Toestemming: autocomposter.reload
+#
+# /autocomposter geven [speler] [hoeveelheid]: Geeft autocomposter items aan een speler
+# Permission: autocomposter.give
+
+############################
+##### Algemene instellingen
+############################
+
+# Kans per gewas om bevrucht te worden.
+# Indien ingesteld op 1, proberen alle gewassen binnen de straal te groeien
+# Indien ingesteld op 0.5, heeft elk gewas 50% kans om te groeien.
+chance: 1
+
+# Als het waar is, zal elke groeipoging zich gedragen als wanneer de speler
+# beendermeel gebruikt, wat betekent dat de plant 2-5 stadia groeit.
+# Een succesvolle groeipoging zal ook deeltjes tonen en
+# het beendermeel geluid afspelen.
+# Indien vals, zie "groeien-per-min" en "groeien-per-max" opties hieronder.
+mimic-bonemeal: true
+
+# Als "mimic-bonemeal" vals is, kun je een reeks stadia definiëren
+# die willekeurig wordt gekozen voor elke groeipoging.
+grow-by-min: 1
+grow-by-max: 3
+
+# Kans per bemestingspoging om de compost hoeveelheid met 1 te verminderen.
+# Wanneer ingesteld op 1, vermindert elke bemestingspoging de compost hoeveelheid.
+# Indien ingesteld op 0.5, heeft elke bemestingspoging 50% kans om
+# de compost hoeveelheid te verminderen.
+compost-consume-chance: 1
+
+# Als het waar is, consumeren composters nog steeds compost, zelfs als er geen gewassen
+# om te groeien in de buurt zijn.
+composters-are-wasteful: false
+
+# Indien ingesteld op false, kun je composters niet langer gebruiken om beendermeel te oogsten.
+composters-create-bonemeal: true
+
+# Interval in seconden tussen elke bemestingspoging
+min-interval: 20
+max-interval: 40
+
+# Indien waar, kun je stiekem + rechts klikken op composters met zaden om de zaden te autoplanten
+# op nabijgelegen landbouwgrond
+autoplant: true
+
+# Straal waarin de composters gewassen bevruchten
+# Kan niet hoger ingesteld worden dan 5 voor y en 10 voor xz
+radius-xz: 4
+radius-y: 1
+
+############################
+##### Crafting recept #####
+############################
+
+# Indien waar, gedragen alleen composters gemaakt door een speciaal knutselrecept
+# gedragen zich als AutoComposters.
+# Indien niet waar, gedragen alle composters zich als AutoComposters.
+composter-requires-special-crafting-recipe: true
+
+# Naam van het speciale composteer item
+item-name: "Auto Composter"
+
+# Als je een aangepast resource pakket gebruikt, kun je een speciale
+# textuur toewijzen aan het speciale composteer item.
+item-modeldata: 0
+
+# Als het waar is, gloeit het speciale composteerder item als een betoverd item
+item-glow: true
+
+# Je kunt het knutselrecept uitschakelen als je wilt dat AutoComposter
+# alleen te verkrijgen is met het commando /autocomposter geef [speler] [hoeveelheid]
+# Als je dit op false zet, zet dan ook "composter-requires-special-crafting-recipe" op true.
+enable-crafting: true
+
+# Definieer hier de vorm van het recept.
+# Zie voorbeeld-recepten.html voor voorbeelden.
+recipe-shape:
+  - "R"
+  - "C"
+
+# Definieer hier de ingrediënten van het recept.
+# Zie voorbeeld-recepten.html voor voorbeelden.
+recipe-ingredients:
+  - "R=REDSTONE"
+  - "C=COMPOSTER"
+
+# Als true, stuurt AutoComposter het recept naar alle spelers bij het joinen.
+# Indien false, moeten spelers het recept zelf ontdekken
+auto-discover-recipe: false
+
+# Indien waar, zal een AutoComposter vallen als er een kapot is
+# Als het niet waar is, valt er een normale composteerder.
+drop-autocomposters: true
+
+############################
+##### Deeltjes: #####
+############################
+
+# Indien waar, zullen alle composters (of, wanneer het speciale crafting
+# alleen AutoComposters) deeltjes tonen
+composter-particles-enabled: true
+composter-particles-type: villager_happy
+composter-particles-count: 5
+
+
+############################
+##### Update Checker #####
+############################
+
+# Moeten we controleren op updates?
+# Indien ingeschakeld, wordt een bericht in de console afgedrukt als er een nieuwe versie is gevonden.
+# is gevonden, en OP's worden gewaarschuwd als ze zich bij de server aansluiten.
+# Indien ingesteld op waar, controleren we op updates bij het opstarten en elke X uur.
+# Indien ingesteld op on-startup, wordt alleen bij het opstarten gecontroleerd.
+# Indien ingesteld op false, wordt er niet gecontroleerd op updates
+check-for-updates: true
+
+# Als check-for-updates waar is, zal ComposterReloaded elke X uur controleren
+check-interval: 4
+
+#################
+##### Klaar! #####
+#################
+
+# Niet veranderen!
+config-versie: 202209071000
+plugin-versie: 3.2.2
+
+test: asd
