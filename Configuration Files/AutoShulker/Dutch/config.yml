@@ -1,0 +1,66 @@
+##########################
+#####   AutoShulker   ####
+##########################
+
+# AutoShulkers collect all items that have been assigned to this box.
+item-material: BOOK
+item-name: "&2AutoShulker"
+item-lore: "&aDeze AutoShulker Pakt Op:"
+
+# GarbageBoxes discard all items that have been assigned to this box.
+item-material-garbage: LAVA_BUCKET
+item-name-garbage: "&4VuilnisBak"
+item-lore-garbage: "&cDeze Vuilnis bak gooit weg:"
+
+# The items are added to the lore of the shulker box as well.
+# If you'd like to use translated item names, grab your MC client's translation
+# file, rename it to "items.json" and place it inside your plugins/AutoShulker folder.
+# (Those translation files are hard to find, so just contact me on Discord if you need help)
+# If you need help, pls join my Discord at https://discord.jeff-media.com
+item-lore-line: "- %s"
+
+# Whether or not to play a sound effect when a shulker box collects an item
+sound-enabled: true
+
+# The sound effect to play when a shulker box collects an item
+sound-effect: ENTITY_ITEM_PICKUP
+sound-volume: 1.0
+sound-pitch: 1.0
+
+# When set to false, only player that has the shulker box equipped can hear the sound
+# When set to true, all nearby players can hear the sound
+sound-global: true
+
+message-actionbar: "&aAutoShulker heeft {amount}x {item} verzameld"
+message-actionbar-garbage: "&cAutoShulker heeft  {amount}x {item} weggegooid"
+
+# The priority on which AutoShulker should listen to the EntityPickupItemEvent.
+# Available values: LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR
+event-priority: HIGHEST
+
+##########################
+##### Update Checker #####
+##########################
+
+# Checks for updates (asynchronously).
+# When enabled, a message is printed in the console if a new
+# version has been found, and OPs will be notified when they join the server
+# When set to true, check for updates on startup and every X hours (see below)
+# When set to on-startup, only check on server startup
+# When set to false, don't check for updates
+check-for-updates: true
+
+# When you set "check-for-updates" to true, you can define the amount
+# of hours between each update check.
+update-check-interval: 4
+
+##########################
+##### End of Config  #####
+##########################
+
+# Only enable this if you know what you are doing
+debug: false
+
+# NEVER CHANGE THE VALUES BELOW!
+config-version: ${config.version}
+plugin-version: ${project.version}
