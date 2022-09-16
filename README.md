@@ -10,7 +10,11 @@ This repository provides information about some of my plugins, but it's still un
 ## Default Configuration files
   - [AngelChestPlus](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/AngelChest)
   - [AutoComposter](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/AutoComposter)
+  - [AutoShulker](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/AutoShulker)
+  - [Daytime](https://github.com/JEFF-Media-GbR/Daytime/blob/master/src/main/resources/config.yml)
   - [Drop2InventoryPlus](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/Drop2Inventory)
+  - [FilteredHoppers](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/FilteredHoppers)
+  - [InvUnload](https://github.com/JEFF-Media-GbR/InvUnload/blob/master/src/main/resources/config.yml)
   - [JukeBoxPlus](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/JukeBoxPlus)
   - [RePlant](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/RePlant)
   - [StackResize](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/StackResize)
