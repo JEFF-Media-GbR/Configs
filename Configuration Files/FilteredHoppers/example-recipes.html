@@ -1,0 +1,21 @@
+<h1 id="custom-crafting-recipes">Custom crafting recipes</h1>
+<p>You can define custom crafting recipes for the magic hopper thing. Here are a few examples:</p>
+<h3 id="nautilus-shell-with-redstone-on-top">Nautilus shell with redstone on top</h3>
+<pre><code class="lang-yaml">recipe-shape:
+  -<span class="ruby"> <span class="hljs-string">"R"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"N"</span>
+</span>
+recipe-ingredients:
+  -<span class="ruby"> <span class="hljs-string">"R=REDSTONE"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"N=NAUTILUS_SHELL"</span></span>
+</code></pre>
+<h3 id="nautilus-shell-surrounded-with-diamonds">Nautilus shell surrounded with diamonds</h3>
+<pre><code class="lang-yaml">recipe-shape:
+  -<span class="ruby"> <span class="hljs-string">"DDD"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"DND"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"DDD"</span>
+</span>
+recipe-ingredients:
+  -<span class="ruby"> <span class="hljs-string">"D=DIAMOND"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"N=NAUTILUS_SHELL"</span></span>
+</code></pre>

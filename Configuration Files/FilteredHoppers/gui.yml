@@ -1,0 +1,95 @@
+# All undefined slots can be used to add items.
+#
+# Available button types:
+#
+#  toggle: Will be replaced with toggle-enabled or toggle-disabled
+#  whitelist: Will be replaced with whitelist-enabled or blacklist-enabled
+#  item: Will be used to show the stored items
+
+inventory-title: "<#ffffff>Filtered Hopper<#/bbbbbb>"
+
+exact-lore:
+  - "&4&l[&r&cExact Matching&4&l]"
+  - "&cMatches only exact items"
+  - "&c(Name, lore, enchantments, ...)"
+
+##### Slots
+'0': placeholder
+'1': placeholder
+'2': placeholder
+'3': placeholder
+'4': placeholder
+'5': placeholder
+'6': placeholder
+'7': placeholder
+'8': placeholder
+
+'9': placeholder
+'10': toggle
+'11': whitelist
+'17': placeholder
+
+'18': placeholder
+'19': placeholder
+'20': placeholder
+'21': placeholder
+'22': placeholder
+'23': placeholder
+'24': placeholder
+'25': placeholder
+'26': placeholder
+
+'27': placeholder
+'28': item
+'29': item
+'30': item
+'31': item
+'32': item
+'33': item
+'34': item
+'35': placeholder
+
+'36': placeholder
+'37': item
+'38': item
+'39': item
+'40': item
+'41': item
+'42': item
+'43': item
+'44': placeholder
+
+'45': placeholder
+'46': placeholder
+'47': placeholder
+'48': placeholder
+'49': placeholder
+'50': placeholder
+'51': placeholder
+'52': placeholder
+'53': placeholder
+
+##### Items
+toggle-enabled:
+  material: GREEN_WOOL
+  display-name: "&6&lStatus: &r<#00ff00>Enabled"
+  lore:
+    - "Click here to <#ff0000>disable&r all filters"
+toggle-disabled:
+  material: RED_WOOL
+  display-name: "&6&lStatus: &r<#ff0000>Disabled"
+  lore:
+    - "Click here to <#00ff00>enable&r all filters"
+whitelist-enabled:
+  material: WHITE_WOOL
+  display-name: '&6&lMode: &r<#ffffff>Whitelist'
+  lore:
+    - "Click here to switch to the <#ff0000>blacklist"
+blacklist-enabled:
+  material: BLACK_WOOL
+  display-name: '&6&lMode: &r<#ff0000>Blacklist'
+  lore:
+    - "Click here to switch to the <#ffffff>whitelist"
+placeholder:
+  material: BLACK_STAINED_GLASS_PANE
+  display-name: "&a "

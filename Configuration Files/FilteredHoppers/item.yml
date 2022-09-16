@@ -1,0 +1,33 @@
+# When true, players need a special item to open the hopper settings GUI.
+# When false, players can open the GUI using shift+right-click.
+require-custom-item: true
+
+# When you set "require-custom-item" to false, you can force players to
+# have an empty hand to open the GUI when using shift+right-click.
+# It's recommended to enable this when not requiring a custom item,
+# because otherwise players cannot place blocks against hoppers anymore.
+require-empty-hand: false
+
+# Define the item that you want to use for the "magical hopper thing".
+item:
+  custom-model-data: 2
+  material: NAUTILUS_SHELL
+  display-name: "<#ff0000>Magic<#/00ff00> Hopper<#/0000ff> Thing<#/ffffff>"
+  lore:
+    - "<#ffffff>Right-click a hopper to<#/ff0000>"
+    - "<#ffffff>change its filter settings.<#/ff0000>"
+  glow: true
+
+# See example-recipes.html
+crafting-recipe:
+  shape:
+    - "RRR"
+    - "RNR"
+    - "RRR"
+  ingredients:
+    - "N=NAUTILUS_SHELL"
+    - "R=REDSTONE"
+
+# When set to true, the custom item cannot be obtained through crafting but only
+# through /filteredhoppers giveitem
+disable-crafting: false
