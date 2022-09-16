@@ -1,4 +1,4 @@
-# Issue Tracker / Wiki
+# Config / Wiki
 
 This repository provides information about some of my plugins, but it's still under construction.
 
