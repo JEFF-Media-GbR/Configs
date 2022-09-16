@@ -11,6 +11,7 @@ This repository provides information about some of my plugins, but it's still un
   - [AngelChestPlus](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/AngelChest)
   - [AutoComposter](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/AutoComposter)
   - [AutoShulker](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/AutoShulker)
+  - [ChestSort](https://raw.githubusercontent.com/JEFF-Media-GbR/ChestSort/master/src/main/resources/config.yml)
   - [Daytime](https://github.com/JEFF-Media-GbR/Daytime/blob/master/src/main/resources/config.yml)
   - [Drop2InventoryPlus](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/Drop2Inventory)
   - [FilteredHoppers](https://github.com/JEFF-Media-GbR/issue-tracker/blob/main/Configuration%20Files/FilteredHoppers)
@@ -18,6 +19,10 @@ This repository provides information about some of my plugins, but it's still un
   - [JukeBoxPlus](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/JukeBoxPlus)
   - [RePlant](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/RePlant)
   - [StackResize](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/StackResize)
+
+## API
+  - [ChestSort API](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/JukeBoxPlus)
+
 
 ## Links
 - [All my public plugins on SpigotMC](https://www.spigotmc.org/resources/authors/mfnalex.175238/)
