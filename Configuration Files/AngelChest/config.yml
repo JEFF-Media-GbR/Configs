@@ -1,13 +1,15 @@
-#############################
-#####   AngelChestPlus  #####
-#############################
+#########################
+#####   AngelChest  #####
+#########################
 
 # written by mfnalex / JEFF Media GbR
 
+# Support: https://discord.jeff-media.com
+
 ##### WARNING! #####
 # This file contains UTF8 symbols! You MUST use a proper text editor like Notepad++ to edit this file!
-# If you use some kind of "online editor", your file will break and reset to the default values!
-# If this (❤️️) doesn't look like a heart, you MUST use another text editor, because your's doesn't support UTF-8!
+# If you use some kind of "online editor", your file is likely to break and reset to the default values!
+# If this [♥] doesn't look like a heart, you MUST use another text editor, because yours doesn't support UTF-8!
 ##### WARNING! #####
 
 #############################
@@ -357,9 +359,12 @@ check-interval: 24
 # PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
 death-maps: false
 
+# When set to true, death Maps created by AngelChest will never be put into any
+# AngelChests on the next death. This avoids filling up inventories when dying several times in a row.
+dispose-death-maps: false
+
 # You can change the marker type to be used. See here for a list of valid marker types in the latest MC version:
 # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/map/MapCursor.Type.html
-# PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
 death-map-marker: RED_X
 
 death-map-name: "AngelChest"
@@ -378,11 +383,13 @@ death-map-lore: "X: {x}\nY: {y}\nZ: {z}"
 drop-heads: false
 
 # When set to true, heads are only dropped when a player dies in PvP
-# PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
 only-drop-heads-in-pvp: true
 
+# Time in seconds since the last PVP hit until a player is not considered to be in PVP anymore
+# If set to 0, only the last hit is considered
+only-drop-heads-in-pvp-cooldown: 10
+
 # When set to true, heads are dropped next to the AngelChest instead of being put inside
-# PREMIUM FEATURE: ONLY AVAILABLE IN AngelChest Plus!
 dont-store-heads-in-angelchest: true
 
 #########################
@@ -1295,15 +1302,15 @@ message-pvp-cooldown: "&cAn Angel tried to collect your stuff but was still too 
 #message-angelchest-fetched: "&aAngelChest is sucesvol opgehaalt."
 #message-angelchest-teleported: "&aSucesvol getelporteerd naar je AngelChest."
 #message-min-distance: "&cJe bent al in de buurt van je AngelChest."
-#message-buried-in-graveyard: "&aAn Angel collected your stuff and buried it at &6{graveyard}."
-#message-cant-fetch-here: "&cYou cannot fetch your AngelChest here."
+#message-buried-in-graveyard: "Een engel heeft je spullen verzameld en begraven op &6{graveyard}."
+#message-cant-fetch-here: "&cU kunt uw AngelChest hier niet ophalen."
 #message-teleporting: "&aTeleporteren naar jou AngelChest..."
-#message-angelchest-disabled-others: "&c{player} is no longer protected by Angels."
-#message-angelchest-enabled-others: "&a{player} is now protected by Angels."
-#message-has-no-item: "&cYou need at least one {item}&r&c to do this."
-#message-has-no-item2: "&cAn Angel tried to collect your stuff but you didn't have any {item}&r&c."
-#message-cooldown: "&cAn Angel tried to collect your stuff but was still too tired to do so."
-#message-pvp-cooldown: "&cAn Angel tried to collect your stuff but was still too tired to do so."
+#message-angelchest-disabled-others: "&c{player} wordt niet langer beschermd door Angels."
+#message-angelchest-enabled-others: "&a{speler} wordt nu beschermd door Engelen."
+#message-has-no-item: "&cJe hebt minstens één {item}&r&c nodig om dit te doen."
+#message-has-no-item2: "&cEen Engel probeerde je spullen te verzamelen maar je had geen {item}&r&c."
+#message-cooldown: "&cEen Engel probeerde je spullen te verzamelen maar was nog te moe om dat te doen."
+#message-pvp-cooldown: "&cEeen Engel probeerde je spullen te verzamelen maar was nog te moe om dat te doen."
 
 ##### French - Thanks to AngelCynara for translating! -> https://www.spigotmc.org/members/angelcynara.398643/ 
 #message-all-your-angelchests-were-already-unlocked: "&eTout vos AngeCoffres sont débloqués."
