@@ -1,0 +1,21 @@
+<h1 id="custom-crafting-recipes">Aangepaste bouw recepten</h1>
+<p>Je kunt aangepaste bouw recepten definiëren voor het speciale composteerartikel. Hier zijn een paar voorbeelden:</p>
+<h3 id="composter-with-redstone-on-top">Composter met redstone erop</h3>
+<pre><code class="lang-yaml">recepten-vorm:
+  -<span class="ruby"> <span class="hljs-string">"R"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"C"</span>
+</span>
+recepten-vorm:
+  -<span class="ruby"> <span class="hljs-string">"R=REDSTONE"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"C=COMPOSTER"</span></span>
+</code></pre>
+<h3 id="composter-surrounded-with-diamonds">Composter met diamanten er om heen</h3>
+<pre><code class="lang-yaml">recept-vorm:
+  -<span class="ruby"> <span class="hljs-string">"DDD"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"DCD"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"DDD"</span>
+</span>
+recept-ingredienten:
+  -<span class="ruby"> <span class="hljs-string">"D=DIAMOND"</span>
+</span>  -<span class="ruby"> <span class="hljs-string">"C=COMPOSTER"</span></span>
+</code></pre>
