@@ -20,8 +20,15 @@ This repository provides information about some of my plugins, but it's still un
   - [RePlant](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/RePlant)
   - [StackResize](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/StackResize)
 
-## API
-  - [ChestSort API](https://github.com/JEFF-Media-GbR/issue-tracker/tree/main/Configuration%20Files/JukeBoxPlus)
+## Development Resources
+  - [AngelChestAPI](https://github.com/JEFF-Media-GbR/AngelChestAPI)
+  - [ArmorEquipEvent](https://github.com/JEFF-Media-GbR/ArmorEquipEvent)
+  - [ChestSortAPI](https://github.com/JEFF-Media-GbR/Spigot-ChestSortAPI)
+  - [CustomBlockData](https://github.com/JEFF-Media-GbR/CustomBlockData)
+  - [Drop2InventoryAPI](https://github.com/JEFF-Media-GbR/Drop2InventoryAPI)
+  - [JeffLib](https://github.com/JEFF-Media-GbR/JeffLib)
+  - [MorePersistentDataTypes](https://github.com/JEFF-Media-GbR/MorePersistentDataTypes)
+  - [Spigot-UpdateChecker](https://github.com/JEFF-Media-GbR/Spigot-UpdateChecker)
 
 
 ## Links
