@@ -1,5 +1,8 @@
 # Config / Wiki
 
+> [!WARNING]  
+> Plugin config files and placeholders are outdated.
+
 This repository provides information about some of my plugins, but it's still under construction.
 
 ## PlaceholderAPI
